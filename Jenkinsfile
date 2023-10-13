@@ -1,4 +1,4 @@
-@Library('my-shared-library') _
+@Libraray('my-shared-library') _
 pipeline{
     agent any
 
@@ -11,6 +11,17 @@ pipeline{
                 branch:"main",
                 url: "https://github.com/AbhayGRT/Jenkins_shared_lib.git"
             )
+                
+            }
+
+        }
+        stage('Unit Test Maven'){
+
+            steps{
+                script{
+                    mvnTest()
+                }
+
                 
             }
 
