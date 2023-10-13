@@ -1,20 +1,16 @@
-@Libraray('my-shared-library') _
-pipeline{
+@Library('my-shared-library') _
+
+pipeline {
     agent any
 
-    stages{
-
-        stage('Git Checkout'){
-
-            steps{
-            gitCheckout(
-                branch:"main",
-                url: "https://github.com/AbhayGRT/Jenkins_shared_lib.git"
-            )
-                
+    stages {
+        stage('Git Checkout') {
+            steps {
+                script {
+                    def customLibrary = new org.example.CustomLibrary()
+                    customLibrary.someFunction()
+                }
             }
-
         }
-
     }
 }
